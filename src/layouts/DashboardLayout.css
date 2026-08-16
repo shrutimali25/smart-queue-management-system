@@ -1,0 +1,150 @@
+.dash-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--neutral-50);
+}
+
+/* Sidebar */
+.dash-sidebar {
+  width: 260px;
+  background: var(--neutral-0);
+  border-right: 1px solid var(--neutral-200);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transition: transform var(--transition);
+}
+.dash-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-5);
+  border-bottom: 1px solid var(--neutral-200);
+}
+.dash-brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+  color: #fff;
+  font-weight: 800;
+  font-size: var(--fs-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+.dash-brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.dash-brand-title { font-weight: 800; font-size: var(--fs-base); color: var(--neutral-900); }
+.dash-brand-sub { font-size: var(--fs-xs); color: var(--primary-600); font-weight: 700; letter-spacing: 0.5px; }
+
+.dash-nav { flex: 1; padding: var(--space-4); overflow-y: auto; }
+.dash-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--neutral-600);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  margin-bottom: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+.dash-nav-item:hover { background: var(--neutral-100); color: var(--neutral-900); }
+.dash-nav-item.active { background: var(--primary-50); color: var(--primary-700); }
+.dash-nav-item.active svg { color: var(--primary-600); }
+
+.dash-sidebar-footer {
+  padding: var(--space-4);
+  border-top: 1px solid var(--neutral-200);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Main */
+.dash-main {
+  flex: 1;
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dash-topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-8);
+  background: var(--neutral-0);
+  border-bottom: 1px solid var(--neutral-200);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+}
+.dash-menu-btn { display: none; color: var(--neutral-700); background: none; border: none; padding: var(--space-2); }
+.dash-page-title { font-size: var(--fs-xl); font-weight: 700; flex: 1; }
+.dash-topbar-right { margin-left: auto; }
+.dash-user { display: flex; align-items: center; gap: var(--space-3); }
+.dash-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dash-user-info { display: flex; flex-direction: column; line-height: 1.2; }
+.dash-user-name { font-weight: 700; font-size: var(--fs-sm); color: var(--neutral-900); }
+.dash-user-role { font-size: var(--fs-xs); color: var(--neutral-500); text-transform: capitalize; }
+
+.dash-content {
+  flex: 1;
+  padding: var(--space-8);
+  overflow-y: auto;
+}
+
+.dash-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 99;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dash-sidebar {
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-xl);
+  }
+  .dash-sidebar.open { transform: translateX(0); }
+  .dash-main { margin-left: 0; }
+  .dash-menu-btn { display: flex; }
+  .dash-backdrop { display: block; }
+  .dash-user-info { display: none; }
+}
+
+@media (max-width: 640px) {
+  .dash-content { padding: var(--space-5); }
+  .dash-topbar { padding: var(--space-4) var(--space-5); }
+  .dash-page-title { font-size: var(--fs-lg); }
+}

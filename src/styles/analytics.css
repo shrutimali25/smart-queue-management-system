@@ -1,0 +1,51 @@
+/* Analytics charts */
+.an-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3);
+  height: 220px;
+  padding-top: var(--space-4);
+}
+.an-bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.an-bar {
+  width: 100%;
+  max-width: 40px;
+  background: linear-gradient(180deg, var(--primary-500), var(--primary-700));
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: height var(--transition-slow);
+  min-height: 4px;
+}
+.an-bar-label { font-size: var(--fs-xs); color: var(--neutral-500); font-weight: 600; }
+.an-bar-val { font-size: var(--fs-xs); font-weight: 700; color: var(--neutral-700); }
+
+.an-svc-list { display: flex; flex-direction: column; gap: var(--space-4); }
+.an-svc-row { display: flex; align-items: center; gap: var(--space-3); }
+.an-svc-name { width: 120px; font-size: var(--fs-sm); font-weight: 600; color: var(--neutral-700); flex-shrink: 0; }
+.an-svc-bar-track {
+  flex: 1;
+  height: 12px;
+  background: var(--neutral-100);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.an-svc-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-500), var(--secondary-500));
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+  min-width: 4px;
+}
+.an-svc-val { width: 40px; text-align: right; font-size: var(--fs-sm); font-weight: 700; color: var(--neutral-900); }
+
+@media (max-width: 640px) {
+  .an-bars { height: 160px; }
+  .an-svc-name { width: 90px; }
+}
