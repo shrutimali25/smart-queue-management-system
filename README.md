@@ -9,17 +9,17 @@ A web-based queue management system that allows users to generate tokens and hel
 - Real-time queue management
 - Staff token management
 - Token history
-- User profile
+- User profile management
 - Admin management
 - Queue analytics
 
 ## Tech Stack
 
-- Frontend: React, Vite
-- Backend: Python, Flask
-- Database: MySQL
-- Authentication: JWT
-- Styling: CSS
+- **Frontend:** React, Vite
+- **Backend:** Python, Flask
+- **Database:** MySQL
+- **Authentication:** JWT
+- **Styling:** CSS
 
 ## How to Run
 
